@@ -20,9 +20,9 @@
 </head>
 
 <body>
-<div class="relative  " style="background-color:#F0F0F0;width: auto; height: 700px;"></div> 
+<div class="relative  hidden md:block lg:block" style="background-color:#F0F0F0;width: auto; height: 700px;"></div> 
 
-        <div class="bg-white flex flex-col justify-center relative bottom-96 left-96 ml-10 text-center  " style="height: 200px; width: 450px;">
+        <div class="bg-white flex flex-col justify-center relative bottom-96 left-96 ml-16 text-center  " style="height: 200px; width: 450px;">
            
             <div class="mb-4  text-center ">
                 <h1 id="captcha" class="font-bold text-xl mb-3 " value="">here comes captcha</h1>
@@ -34,8 +34,29 @@
             </div>
             
         </div>
+        <!--  -->
+        <div class="relative md:hidden lg:hidden bottom-96" style="background-color:white;width: auto; height: 400px;"></div> 
+
+        <div class=" bg-white flex flex-col justify-center  relative bottom-96  ml-10 text-center  " style="height: 200px; width: 450px; border: solid black 2px;">
+           
+            <div class="mb-4  text-center ">
+                <h1 id="captchas" class="font-bold text-xl mb-3 " value="">Here comes captcha</h1>
+                <button id ="creates" class="bg-blue-500 p-2 text-white" style="border-radius: 10px; outline: none;" >create captcha</button>
+            </div>
+            <div class="flex justify-center ">
+                <input id="entervalues" type="text" class=" ml-10 mr-4" style="border: black solid 2px;" >
+                <button id="verifys" class="bg-green-400 p-2 text-white" style="border-radius: 10px;">Verify</button>
+            </div>
+            
+        </div>
     
 </div>
+</div>
+
+    
+</div>
+</div>
+
 <script>
     var captcha= document.getElementById("captcha")
     var entervalue= document.getElementById("entervalue")
@@ -62,6 +83,35 @@
         }
     })
 </script>
+<!--  -->
+
+<script>
+    var captchas= document.getElementById("captchas")
+    var entervalues= document.getElementById("entervalues")
+    var creates= document.getElementById("creates")
+    var verifys= document.getElementById("verifys")
+
+    creates.addEventListener("click",function(){
+        
+     var nos = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+     var xs =nos[Math.floor(Math.random()*nos.length)]
+     for(var i=0;i<6;i++){
+        xs=xs+nos[Math.floor(Math.random()*nos.length)] 
+
+     }
+     captchas.textContent=xs
+
+    })
+    verifys.addEventListener("click",function(){
+        if(captchas.textContent==entervalues.value){
+            alert(" you Entered correct captcha")
+        }
+        else{
+            alert("try again ")
+        }
+    })
+</script>
+
 </body>
 
 </html>
