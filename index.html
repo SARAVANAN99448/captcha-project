@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    colors: {
+                        clifford: '#da373d',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+
+<body>
+<div class="relative  " style="background-color:#F0F0F0;width: auto; height: 700px;"></div> 
+
+        <div class="bg-white flex flex-col justify-center relative bottom-96 left-96 ml-10 text-center  " style="height: 200px; width: 450px;">
+           
+            <div class="mb-4  text-center ">
+                <h1 id="captcha" class="font-bold text-xl mb-3 " value="">here comes captcha</h1>
+                <button id ="create" class="bg-blue-500 p-2 text-white" style="border-radius: 10px; outline: none;" >create captcha</button>
+            </div>
+            <div class="flex justify-center ">
+                <input id="entervalue" type="text" class=" ml-10 mr-4" style="border: black solid 2px;" >
+                <button id="verify" class="bg-green-400 p-2 text-white" style="border-radius: 10px;">Verify</button>
+            </div>
+            
+        </div>
+    
+</div>
+<script>
+    var captcha= document.getElementById("captcha")
+    var entervalue= document.getElementById("entervalue")
+    var create= document.getElementById("create")
+    var verify= document.getElementById("verify")
+
+    create.addEventListener("click",function(){
+        
+     var no = "1234567890abcdefghijklmnopqrstuvwxyzABCDEFGHIJKLMNOPQRSTUVWXYZ"
+     var x =no[Math.floor(Math.random()*no.length)]
+     for(var c=0;c<6;c++){
+        x=x+no[Math.floor(Math.random()*no.length)] 
+
+     }
+     captcha.textContent=x
+
+    })
+    verify.addEventListener("click",function(){
+        if(captcha.textContent==entervalue.value){
+            alert(" you Entered correct captcha")
+        }
+        else{
+            alert("try again ")
+        }
+    })
+</script>
+</body>
+
+</html>
